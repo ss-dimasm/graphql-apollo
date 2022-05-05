@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client'
-import { UPDATE_ADVERTISING_MODEL } from '../fragments/properties-advertising'
+import { UPDATE_ADVERTISING_MODEL } from '../fragments/property/properties-advertising'
 
 export type UpdateAdvertisingPropertiesListQueryVariables = {
   id: string

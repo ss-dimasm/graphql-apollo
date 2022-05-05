@@ -1,10 +1,11 @@
 import { gql } from '@apollo/client'
 import { PropertyModel } from '@reapit/foundations-ts-definitions'
-import { PROPERTIES_MODEL } from '../fragments/properties-model'
+import { PROPERTIES_MODEL } from '../fragments/property/properties-model'
 
 export type PropertiesListQueryVariables = {
   negotiatorId?: string[]
   propertyId?: string[]
+  pageSize?: number
 }
 
 export type PropertiesListQueryData = {
@@ -20,8 +21,8 @@ export type PropertiesListQueryData = {
 
 export const GET_PROPERTIES = gql`
   ${PROPERTIES_MODEL}
-  query GetProperties {
-    GetProperties {
+  query GetProperties($pageSize: Int) {
+    GetProperties(pageSize: $pageSize) {
       _embedded {
         ...PropertiesEmbed
       }
